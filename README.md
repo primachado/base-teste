@@ -1,28 +1,86 @@
-# base-teste
-RepositÃ³rio para testes dos candidatos 2019
+# Levantamento do projeto
+
+- Criação do ambiente (PHP 7.2 e Laravel 5.5)
+- Criação do banco de dados no phpmyadmin
+- Instalação e configuração do L5 repository
+- Configuração do banco de dados (.env e database)
+- Criação das migrations (tipo_imovel, proprietario e imovel)
+- Criação dos seeders (tipo_imovel e proprietario)
+- Criação das rotas
+- Criação do CRUD de imóvel
+- Criação da request/rules para validação dos campos e formato do padrão para CEP 00000-000
+- Criação da pesquisa de imóvel por município
+- Criação da pesquisa de imóvel por bairro
+- Criação da lista de imóvel ordenada por bairro e munícipio paginada
+
+# Endpoints
+
+# Criar imóvel:  
+
+POST | api/imovel
+
+Exemplo de json utilizado:
+
+```javascript
+{
+	"logradouro": "Rua Projetada V",
+	"numero" :13,
+	"complemento": "Qd 37",
+	"cep": "25260-140",
+	"estado": "RJ",
+	"bairro": "Santa Cruz da Serra",
+	"municipio": "Duque de Caxias",
+	"id_tipo_imovel": 1,
+	"id_proprietario": 1
+}
+```
+
+# Editar imóvel:
+
+PUT| api/imovel/{imovel}   
+
+Exemplo de json utilizado:
+
+```javascript
+{
+	"logradouro":"Rua Projetada A",
+	"numero":15,
+	"complemento": "Qd 38",
+	"cep": "25260-141",
+	"estado": "RJ",
+	"bairro": "Parque Paulista",
+	"municipio": "Duque de Caxias",
+	"id_tipo_imovel": 1,
+	"id_proprietario": 1
+}
+```
+
+# Listar imóvel:
+
+GET| api/imovel  
+
+# Deletar imóvel:
+
+DELETE | api/imovel/{imovel}  
+          
+# Pesquisar imóvel por bairro:
+
+GET | api/imovel/pesquisarPorBairro/{bairro}
+
+# Pesquisar imóvel por município:
+
+GET| api/imovel/pesquisarPorMunicipio/{municipio}
+
+# Paginar e ordenar imóvel:
+
+GET| api/imovel/ordenar 
 
 
-## Teste
-Desenvolva uma aplicaÃ§Ã£o PHP 7+ utilizando o framework Laravel para resolver o seguinte problema:
 
 
-Uma administradora de imÃ³veis precisa realizar o cadastro dos imÃ³veis que ela administra. Os dados que ela gostaria de guardar sÃ£o:
-
-- EndereÃ§o do imÃ³vel
-- Bairro
-- Municipio
-- Estado
-- CEP ( Deve validar o padrÃ£o 00000-000 )
-- Tipo do ImÃ³vel ( Apartamento, Casa, SÃ­tio, Andar )
-- Nome do ProprietÃ¡rio
+Obs.: Foi utilizado o Insomnia para testar as APIs.
 
 
-Para isso, utilize o banco de dados MySQL e crie um **CRUD** utilizando **API REST**. Deve ser possÃ­vel pesquisar todos os imÃ³veis de um municipio ou bairro. Deve ser possÃ­vel tambÃ©m paginar e ordenar a lista de imÃ³veis por bairro e municÃ­pio (**nÃ£o Ã© necessÃ¡rio criar o front das telas**, somente back com retorno em **JSON**).
+Obrigada!
 
 
-**OBS:** Ã‰ importante descrever como levantar seu projeto. Arquivos compactados (zip ou rar) no pull request serÃ£o desconsiderados.
-
-
-FaÃ§a um **FORK** deste projeto e quando terminar faÃ§a um **PULL REQUEST** para avaliarmos seu teste.
-
-Boa sorte!
